@@ -95,13 +95,17 @@ def generate_page_head(page_title):
 def generate_index():
     # colors
     sea_green = "#00ffbf"
+    text_white = "#ffffff"
     
     # style
     main_style = ABOUT_style_data()
     main_style.elements.append(ABOUT_css_element("background-color", sea_green))
+    white_text_style = ABOUT_style_data()
+    white_text_style.elements.append(ABOUT_css_element("color", text_white))
 
     # message
     msg = ABOUT_tag("h1")
+    msg.attributes.append(ABOUT_attribute("style", white_text_style))
     msg.inner_tags.append("Hello!")
 
     # main page div
@@ -115,8 +119,8 @@ def generate_index():
 
     # page html
     html = ABOUT_tag("html")
-    html.inner_tags.append(body)
     html.inner_tags.append(generate_page_head("A Brad in Japan"))
+    html.inner_tags.append(body)
 
     return ABOUT_page(html).serialize()
 
