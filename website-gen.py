@@ -9,13 +9,36 @@ Helper Classes
 def ABOUT_tabs(tab_depth):
     return "\t" * tab_depth
 
+class ABOUT_css_element:
+    def __init__(self, name, value):
+        self.name = name
+        self.value = value
+    
+    def serialize(self):
+        return self.name + ": " + self.value + ";"
+
+class ABOUT_style_data:
+    def __init__(self):
+        self.elements = []
+
+    def serialize(self):
+        output = ""
+
+        for element in self.elements:
+            output += element.serialize()
+        
+        return output
+
 class ABOUT_attribute:
     def __init__(self, name, value):
         self.name = name
         self.value = value
 
     def serialize(self):
-        return self.name + "=\"" + str(self.value) + "\""
+        if type(self.value) == ABOUT_style_data:
+            return self.name + "=\"" + self.value.serialize() + "\""
+        else:
+            return self.name + "=\"" + str(self.value) + "\""
 
 class ABOUT_tag:
     def __init__(self, name):
@@ -66,13 +89,25 @@ def write_string_to_file(destination_file_path, string):
     f.close()
 
 def generate_index():
+    # colors
+    sea_green = "#00ffbf"
+    
+    # style
+    main_style = ABOUT_style_data()
+    main_style.elements.append(ABOUT_css_element("background-color", sea_green))
+
     # message
     msg = ABOUT_tag("h1")
     msg.inner_tags.append("Hello!")
 
-    #page body
+    # main page div
+    main_page_div = ABOUT_tag("div")
+    main_page_div.attributes.append(ABOUT_attribute("style", main_style))
+    main_page_div.inner_tags.append(msg)
+
+    # page body
     body = ABOUT_tag("body")
-    body.inner_tags.append(msg)
+    body.inner_tags.append(main_page_div)
 
     # page html
     html = ABOUT_tag("html")
