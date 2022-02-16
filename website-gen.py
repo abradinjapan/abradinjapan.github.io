@@ -15,7 +15,7 @@ class ABOUT_css_element:
         self.value = value
     
     def serialize(self):
-        return self.name + ": " + self.value + ";"
+        return self.name + ": " + str(self.value) + ";"
 
 class ABOUT_style_data:
     def __init__(self):
@@ -77,16 +77,9 @@ class ABOUT_page:
 
 """
 
-Generating Website
+Generating Pages
 
 """
-
-def write_string_to_file(destination_file_path, string):
-    f = open(destination_file_path, "w")
-
-    f.write(string)
-
-    f.close()
 
 def generate_index():
     # colors
@@ -115,7 +108,32 @@ def generate_index():
 
     return ABOUT_page(html).serialize()
 
+"""
+
+Saving Changes
+
+"""
+
+def write_string_to_file(destination_file_path, string):
+    f = open(destination_file_path, "w")
+
+    f.write(string)
+
+    f.close()
+
+"""
+
+Generating Website
+
+"""
+
 def create_website(destination_file_path):
     write_string_to_file(destination_file_path + "index.html", generate_index())
+
+"""
+
+Main
+
+"""
 
 create_website("./")
