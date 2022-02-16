@@ -81,6 +81,17 @@ Generating Pages
 
 """
 
+def generate_page_head(page_title):
+    # title
+    title = ABOUT_tag("title")
+    title.inner_tags.append(str(page_title))
+
+    # head
+    head = ABOUT_tag("head")
+    head.inner_tags.append(title)
+
+    return head
+
 def generate_index():
     # colors
     sea_green = "#00ffbf"
@@ -105,6 +116,7 @@ def generate_index():
     # page html
     html = ABOUT_tag("html")
     html.inner_tags.append(body)
+    html.inner_tags.append(generate_page_head("A Brad in Japan"))
 
     return ABOUT_page(html).serialize()
 
