@@ -98,12 +98,19 @@ def generate_page_contents_paragraph(msg):
 
     return output
 
+def generate_page_contents_heading(msg):
+    output = ABOUT_tag("h2")
+
+    output.attributes.append(ABOUT_attribute("style", ABOUT_css_element("text-align", "center").serialize()))
+    output.inner_tags.append(msg)
+
+    return output
+
 def generate_index():
     # colors
-    color_1 = "#00ffbf"
+    color_1 = "#000000" #"#00ffbf"
     color_2 = "#eeeeee"
     color_3 = "#000000"
-    color_4 = "#cccccc"
     welcome_margin_length = "2%"
     main_page_div_width = "60%"
     font_1 = "Courier New"
@@ -114,19 +121,25 @@ def generate_index():
     page_contents_div_style.elements.append(ABOUT_css_element("background-color", color_2))
     page_contents_div_style.elements.append(ABOUT_css_element("padding", welcome_margin_length))
     header_div_style = ABOUT_style_data()
-    header_div_style.elements.append(ABOUT_css_element("margin-top", "0 auto"))
+    header_div_style.elements.append(ABOUT_css_element("color", color_2))
+    header_div_style.elements.append(ABOUT_css_element("padding", welcome_margin_length))
+    footer_div_style = ABOUT_style_data()
+    footer_div_style.elements.append(ABOUT_css_element("color", color_2))
+    footer_div_style.elements.append(ABOUT_css_element("padding", welcome_margin_length))
     main_page_div_style = ABOUT_style_data()
     main_page_div_style.elements.append(ABOUT_css_element("background-color", color_1))
     main_page_div_style.elements.append(ABOUT_css_element("width", main_page_div_width))
     main_page_div_style.elements.append(ABOUT_css_element("margin", "0 auto"))
     main_page_div_style.elements.append(ABOUT_css_element("box-shadow", "0 10px 10px rgba(0, 0, 0, .5)"))
     welcome_message_style = ABOUT_style_data()
-    welcome_message_style.elements.append(ABOUT_css_element("color", color_2))
     welcome_message_style.elements.append(ABOUT_css_element("text-align", "center"))
-    welcome_message_style.elements.append(ABOUT_css_element("padding", welcome_margin_length))
     body_style = ABOUT_style_data()
     body_style.elements.append(ABOUT_css_element("background-color", color_2))
     body_style.elements.append(ABOUT_css_element("font-family", font_1))
+
+    # break tag
+    break_tag = ABOUT_tag("br")
+    break_tag.self_closing = True
 
     # message
     msg = ABOUT_tag("h1")
@@ -136,20 +149,42 @@ def generate_index():
     # page contents
     page_contents_div = ABOUT_tag("div")
     page_contents_div.attributes.append(ABOUT_attribute("style", page_contents_div_style))
-    page_contents_div.inner_tags.append(generate_page_contents_paragraph("This site is a work in progress."))
-    page_contents_div.inner_tags.append(generate_page_contents_paragraph("Working on it!"))
-    page_contents_div.inner_tags.append(generate_page_contents_paragraph(":)"))
+    page_contents_div.inner_tags.append(generate_page_contents_heading("Hi! I'm Bradford Shapleigh!"))
+    page_contents_div.inner_tags.append(break_tag)
+    page_contents_div.inner_tags.append(generate_page_contents_paragraph("My passion is creating tools for myself and other people to use."))
+    page_contents_div.inner_tags.append(generate_page_contents_paragraph("I believe that software these days is bloated and inefficient."))
+    page_contents_div.inner_tags.append(generate_page_contents_paragraph("It is my dream to make software as efficient as possible while still maintaining productivity."))
+    page_contents_div.inner_tags.append(break_tag)
+    page_contents_div.inner_tags.append(generate_page_contents_paragraph("Though, like everyone else, I have to settle for less."))
+    page_contents_div.inner_tags.append(generate_page_contents_paragraph("Which is why I create compilers and other tools to improve the world."))
+    page_contents_div.inner_tags.append(break_tag)
+    page_contents_div.inner_tags.append(generate_page_contents_paragraph("Although I don't upload my compiler designs I do upload some other things."))
+    page_contents_div.inner_tags.append(generate_page_contents_paragraph("Like byte machines and what not that you can find on my new GitHub."))
+    page_contents_div.inner_tags.append(break_tag)
+    page_contents_div.inner_tags.append(generate_page_contents_heading("Public Projects"))
+    page_contents_div.inner_tags.append(break_tag)
+    page_contents_div.inner_tags.append(generate_page_contents_paragraph("Byte Machine 0"))
+    page_contents_div.inner_tags.append(generate_page_contents_paragraph("Voxelize"))
+
 
     # header
     header_div = ABOUT_tag("div")
     header_div.attributes.append(ABOUT_attribute("style", header_div_style))
     header_div.inner_tags.append(msg)
 
+    # footer
+    footer_div = ABOUT_tag("div")
+    footer_div.attributes.append(ABOUT_attribute("style", footer_div_style))
+    footer_div.inner_tags.append(generate_page_contents_paragraph("This site is a work in progress."))
+    footer_div.inner_tags.append(generate_page_contents_paragraph("It's currently generated with python!"))
+    footer_div.inner_tags.append(generate_page_contents_paragraph("Working on it!"))
+
     # main page div
     main_page_div = ABOUT_tag("div")
     main_page_div.attributes.append(ABOUT_attribute("style", main_page_div_style))
     main_page_div.inner_tags.append(header_div)
     main_page_div.inner_tags.append(page_contents_div)
+    main_page_div.inner_tags.append(footer_div)
 
     # page body
     body = ABOUT_tag("body")
