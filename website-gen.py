@@ -111,6 +111,15 @@ def generate_page_contents_heading(msg):
 
     return output
 
+def generate_page_contents_hyperlink(msg, link):
+    output = ABOUT_tag("a")
+
+    output.attributes.append(ABOUT_attribute("style", ABOUT_css_element("color", "#aaaaaa").serialize()))
+    output.attributes.append(ABOUT_attribute("href", link))
+    output.inner_tags.append(generate_page_contents_paragraph(msg))
+
+    return output
+
 def generate_index(theme):
     # break tag
     break_tag = ABOUT_tag("br")
@@ -135,6 +144,10 @@ def generate_index(theme):
     page_contents_div.inner_tags.append(break_tag)
     page_contents_div.inner_tags.append(generate_page_contents_paragraph("Although I don't upload my compiler designs I do upload some other things."))
     page_contents_div.inner_tags.append(generate_page_contents_paragraph("Like byte machines and what not that you can find on my new GitHub."))
+    page_contents_div.inner_tags.append(break_tag)
+    page_contents_div.inner_tags.append(generate_page_contents_heading("Tutorials"))
+    page_contents_div.inner_tags.append(break_tag)
+    page_contents_div.inner_tags.append(generate_page_contents_hyperlink("WIP", "https://abradinjapan.github.io/"))
     page_contents_div.inner_tags.append(break_tag)
     page_contents_div.inner_tags.append(generate_page_contents_heading("Public Projects"))
     page_contents_div.inner_tags.append(break_tag)
