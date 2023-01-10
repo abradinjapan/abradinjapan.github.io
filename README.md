@@ -1,3 +1,3 @@
 # Personal Website
 
-[Website](https://abradinjapan.github.io/index.html)
+[Website](https://abradinjapan.github.io/)
