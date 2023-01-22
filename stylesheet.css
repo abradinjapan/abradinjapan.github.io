@@ -9,10 +9,10 @@
     --black-color: #000000;
 
     /* Dark Theme */
-    --background-color: var(--grey-color);
+    /*--background-color: var(--grey-color);
     --highlight-color: var(--light-blue-color);
     --normal-text-color: var(--white-color);
-    --border-color: var(--light-grey-color);
+    --border-color: var(--light-grey-color);*/
 
     /* Light Theme */
     --background-color: var(--light-white-color);
