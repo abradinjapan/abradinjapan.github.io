@@ -19,11 +19,38 @@ let about_page = {
     ]
 };
 
+let about_contact_page = {
+    page_contents: [
+        {
+            type: "header",
+            string: "Contact",
+        },
+        {
+            type: "paragraph",
+            string: "abradinjapan@outlook.com",
+        },
+        {
+            type: "link",
+            address: "https://linkedin.com/in/abradinjapan",
+            string: "LinkedIn",
+        },
+        {
+            type: "link",
+            address: "https://github.com/abradinjapan",
+            string: "GitHub",
+        }
+    ]
+};
+
 let about_side_navigation = {
     navigation_links: [
         {
             display_name: "About",
             internal_name_of_link: "about",
+        },
+        {
+            display_name: "Contact",
+            internal_name_of_link: "about_contact",
         }
     ]
 };
@@ -67,43 +94,28 @@ let blog_home_page = {
     ]
 };
 
-let blog_side_navigation = {
-    navigation_links: [
-        {
-            display_name: "Blog",
-            internal_name_of_link: "blog_home",
-        }
-    ]
-};
-
-let contact_page = {
+let blog_18JAN2023 = {
     page_contents: [
         {
             type: "header",
-            string: "Contact",
+            string: "Turing Machine",
         },
         {
             type: "paragraph",
-            string: "abradinjapan@outlook.com",
-        },
-        {
-            type: "link",
-            address: "https://linkedin.com/in/abradinjapan",
-            string: "LinkedIn",
-        },
-        {
-            type: "link",
-            address: "https://github.com/abradinjapan",
-            string: "GitHub",
+            string: "",
         }
     ]
 };
 
-let contact_side_navigation = {
+let blog_side_navigation = {
     navigation_links: [
         {
-            display_name: "Contact",
-            internal_name_of_link: "contact",
+            display_name: "Blog Home",
+            internal_name_of_link: "blog_home",
+        },
+        {
+            display_name: "How A Computer Works 101",
+            internal_name_of_link: "blog_18JAN2023",
         }
     ]
 };
@@ -147,14 +159,44 @@ function generate_html_from_page_body_json(json) {
     return inner_html;
 }
 
+let top_navigation_links = {
+    top_navigation_links: [
+        {
+            display_name: "About",
+            internal_name_of_link: "about",
+        },
+        {
+            display_name: "Tutorials",
+            internal_name_of_link: "tutorials",
+        },
+        {
+            display_name: "Blogs",
+            internal_name_of_link: "blog_home",
+        }
+    ]
+}
+
 // generate html for the side navigation of the specific page
-function generate_html_from_side_navigation_json(json) {
+function generate_html_for_side_navigation_json(json) {
     var inner_html = "";
 
-    // write all parts of information in order
+    // write all links in order
     for (var i = 0; i < json.navigation_links.length; i++) {
         // write link html
         inner_html += "<div class=\"page_side_navigation_link\" onclick=\"set_page_as('" + json.navigation_links[i].internal_name_of_link + "')\">" + json.navigation_links[i].display_name + "</div>";
+    }
+
+    return inner_html;
+}
+
+// generate html for the top navigation
+function generate_html_for_top_navigation_json(json) {
+    var inner_html = "";
+
+    // write all links in order
+    for (var i = 0; i < json.top_navigation_links.length; i++) {
+        // write link html
+        inner_html += "<div class=\"page_top_link\" onclick=\"set_page_as('" + json.top_navigation_links[i].internal_name_of_link + "')\">" + json.top_navigation_links[i].display_name + "</div>";
     }
 
     return inner_html;
@@ -174,6 +216,11 @@ function set_page_as(internal_name) {
         page_side_navigation_json_contents = about_side_navigation;
 
         break;
+    case "about_contact":
+        page_body_json_contents = about_contact_page;
+        page_side_navigation_json_contents = about_side_navigation;
+    
+        break;
     case "tutorials":
         page_body_json_contents = tutorials_page;
         page_side_navigation_json_contents = tutorials_side_navigation;
@@ -184,16 +231,17 @@ function set_page_as(internal_name) {
         page_side_navigation_json_contents = blog_side_navigation;
 
         break;
-    case "contact":
-        page_body_json_contents = contact_page;
-        page_side_navigation_json_contents = contact_side_navigation;
+    case "blog_18JAN2023":
+        page_body_json_contents = blog_18JAN2023;
+        page_side_navigation_json_contents = blog_side_navigation;
 
         break;
     }
 
     // setup page document contents to requested information
+    page_top_links.innerHTML = generate_html_for_top_navigation_json(top_navigation_links);
     page_document_div.innerHTML = generate_html_from_page_body_json(page_body_json_contents);
-    page_side_navigation_div.innerHTML = generate_html_from_side_navigation_json(page_side_navigation_json_contents);
+    page_side_navigation_div.innerHTML = generate_html_for_side_navigation_json(page_side_navigation_json_contents);
 
     return;
 }

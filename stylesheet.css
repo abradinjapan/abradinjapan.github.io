@@ -1,22 +1,26 @@
 :root {
     /* Colors */
-    --red-color: #dd0000;
-    --torii-red-color: #e03e00;
-    --torii-brown-color: #793a30;
-    --brown-color: #996633;
-    --blue-color: #00ccff;
-    --lightest-white-color: #eeffff;
-    --light-white-color: #eeeeee;
-    --white-color: #ffffff;
+    --light-red-color: #ff3636;
+    --light-blue-color: #00ccff;
     --light-grey-color: #aaaaaa;
     --grey-color: #333333;
+    --light-white-color: #eeeeee;
+    --white-color: #ffffff;
     --black-color: #000000;
 
-    /* Specific Colors */
-    --highlight-color: var(--blue-color);/*var(--torii-red-color); /* blue */
-    --background-color: var(--grey-color);/*var(--white-color); /* grey */
-    --normal-text-color: var(--white-color);/*var(--grey-color); /* white */
-    --border-color: var(--light-grey-color);/*var(--light-grey-color); /* light grey */
+    /* Dark Theme */
+    --background-color: var(--grey-color);
+    --highlight-color: var(--light-blue-color);
+    --normal-text-color: var(--white-color);
+    --border-color: var(--light-grey-color);
+
+    /* Light Theme */
+    --background-color: var(--light-white-color);
+    --highlight-color: var(--light-red-color);
+    --normal-text-color: var(--black-color);
+    --border-color: var(--black-color);
+    
+    /* Other Data */
     --default-border-type: solid;
     --dashed-border-type: dashed;
     --page-person-name-font-pixel-size: 40px;
