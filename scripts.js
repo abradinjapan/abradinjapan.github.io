@@ -6,15 +6,7 @@ let about_page = {
         },
         {
             type: "paragraph",
-            string: "It's no secret that modern computers are slow, prone to error and expensive.",
-        },
-        {
-            type: "paragraph",
-            string: "My goal for my career is to build a fast software development ecosystem from the ground up.",
-        },
-        {
-            type: "paragraph",
-            string: "Here you will find interesting tutorials, blogs and videos about me and my projects.",
+            string: "I enjoy writing software.",
         }
     ]
 };
@@ -51,71 +43,6 @@ let about_side_navigation = {
         {
             display_name: "Contact",
             internal_name_of_link: "about_contact",
-        }
-    ]
-};
-
-let tutorials_page = {
-    page_contents: [
-        {
-            type: "header",
-            string: "Tutorials",
-        },
-        {
-            type: "paragraph",
-            string: "Currently, the first tutorial is a work in progress.",
-        }
-    ]
-};
-
-let tutorials_side_navigation = {
-    navigation_links: [
-        {
-            display_name: "Tutorials",
-            internal_name_of_link: "tutorials",
-        }
-    ]
-};
-
-let blog_home_page = {
-    page_contents: [
-        {
-            type: "header",
-            string: "Blogs",
-        },
-        {
-            type: "paragraph",
-            string: "Blogs of my work and personal projects go here.",
-        },
-        {
-            type: "paragraph",
-            string: "Currently, the first one is a Work in Progress.",
-        }
-    ]
-};
-
-let blog_18JAN2023 = {
-    page_contents: [
-        {
-            type: "header",
-            string: "Turing Machine",
-        },
-        {
-            type: "paragraph",
-            string: "",
-        }
-    ]
-};
-
-let blog_side_navigation = {
-    navigation_links: [
-        {
-            display_name: "Blog Home",
-            internal_name_of_link: "blog_home",
-        },
-        {
-            display_name: "How A Computer Works 101",
-            internal_name_of_link: "blog_18JAN2023",
         }
     ]
 };
@@ -166,12 +93,8 @@ let top_navigation_links = {
             internal_name_of_link: "about",
         },
         {
-            display_name: "Tutorials",
-            internal_name_of_link: "tutorials",
-        },
-        {
-            display_name: "Blogs",
-            internal_name_of_link: "blog_home",
+            display_name: "Contact",
+            internal_name_of_link: "about_contact",
         }
     ]
 }
@@ -205,35 +128,16 @@ function generate_html_for_top_navigation_json(json) {
 // set the page body and navigation to fit the user's request
 function set_page_as(internal_name) {
     var page_document_div = document.getElementById("page_document_container");
-    var page_side_navigation_div = document.getElementById("page_side_navigation_container");
     var page_body_json_contents;
-    var page_side_navigation_json_contents;
 
     // get appropriate json contents
     switch (internal_name) {
     case "about":
         page_body_json_contents = about_page;
-        page_side_navigation_json_contents = about_side_navigation;
 
         break;
     case "about_contact":
         page_body_json_contents = about_contact_page;
-        page_side_navigation_json_contents = about_side_navigation;
-    
-        break;
-    case "tutorials":
-        page_body_json_contents = tutorials_page;
-        page_side_navigation_json_contents = tutorials_side_navigation;
-        
-        break;
-    case "blog_home":
-        page_body_json_contents = blog_home_page;
-        page_side_navigation_json_contents = blog_side_navigation;
-
-        break;
-    case "blog_18JAN2023":
-        page_body_json_contents = blog_18JAN2023;
-        page_side_navigation_json_contents = blog_side_navigation;
 
         break;
     }
@@ -241,7 +145,6 @@ function set_page_as(internal_name) {
     // setup page document contents to requested information
     page_top_links.innerHTML = generate_html_for_top_navigation_json(top_navigation_links);
     page_document_div.innerHTML = generate_html_from_page_body_json(page_body_json_contents);
-    page_side_navigation_div.innerHTML = generate_html_for_side_navigation_json(page_side_navigation_json_contents);
-
+    
     return;
 }

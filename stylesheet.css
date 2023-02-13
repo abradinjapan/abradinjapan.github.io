@@ -216,7 +216,7 @@ body {
     border-top-width: var(--no-border-pixel-thickness);
     border-bottom-width: var(--no-border-pixel-thickness);
     border-left-width: var(--no-border-pixel-thickness);
-    border-right-width: var(--edge-border-thickness-pixels);
+    border-right-width: var(--no-border-pixel-thickness);
     display: flex;
     justify-content: left;
     flex-direction: column;
