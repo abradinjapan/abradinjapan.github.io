@@ -3,7 +3,7 @@ let site_json = {
         {
             name: "empty",
             top_links: "normal",
-            side_links: "empty",
+            left_links: "empty",
             content: [
                 {
                     type: "text",
@@ -14,7 +14,7 @@ let site_json = {
         {
             name: "about",
             top_links: "normal",
-            side_links: "empty",
+            left_links: "empty",
             content: [
                 {
                     type: "header",
@@ -22,14 +22,47 @@ let site_json = {
                 },
                 {
                     type: "text",
-                    data: "I enjoy writing software.",
+                    data: "I am a software developer that is familiar with a wide range of software technologies.",
+                },
+                {
+                    type: "text",
+                    data: "I am familiar with OpenGL, C, C++, Lua, Python, C#, Web Development, Linux and more.",
+                },
+                {
+                    type: "text",
+                    data: "I am always open for a chat, please do not hesitate to email me at the address on the bottom of the page."
+                }
+            ]
+        },
+        {
+            name: "contact",
+            top_links: "normal",
+            left_links: "empty",
+            content: [
+                {
+                    type: "header",
+                    data: "Contact",
+                },
+                {
+                    type: "text",
+                    data: "abradinjapan@outlook.com",
+                },
+                {
+                    type: "external_link",
+                    data: "LinkedIn",
+                    link: "https://linkedin.com/in/abradinjapan",
+                },
+                {
+                    type: "external_link",
+                    data: "GitHub",
+                    link: "https://github.com/abradinjapan",
                 }
             ]
         },
         {
             name: "voxelize",
             top_links: "normal",
-            side_links: "empty",
+            left_links: "empty",
             content: [
                 {
                     type: "header",
@@ -50,27 +83,13 @@ let site_json = {
             ]
         },
         {
-            name: "contact",
+            name: "tutorial.home",
             top_links: "normal",
-            side_links: "empty",
+            left_links: "tutorial.left_links",
             content: [
                 {
                     type: "header",
-                    data: "Contact",
-                },
-                {
-                    type: "text",
-                    data: "abradinjapan@outlook.com",
-                },
-                {
-                    type: "external_link",
-                    data: "LinkedIn",
-                    link: "https://linkedin.com/in/abradinjapan",
-                },
-                {
-                    type: "external_link",
-                    data: "GitHub",
-                    link: "https://github.com/abradinjapan",
+                    data: "Tutorials",
                 }
             ]
         }
@@ -98,10 +117,19 @@ let site_json = {
             ]
         }
     ],
-    side_links: [
+    left_links: [
         {
             name: "empty",
             content: []
+        },
+        {
+            name: "tutorials",
+            content: [
+                {
+                    text: "Home",
+                    page: "tutorial.home",
+                }
+            ]
         }
     ]
 };
@@ -234,7 +262,7 @@ function goto_page(page_name) {
     // setup page document contents to requested information
     page_document_div.innerHTML = generate_document(page_json);
     page_top_links_div.innerHTML = generate_top_links(page_json_top_links);
-    //page_left_links_div.innerHTML = generate_side_links();
+    //page_left_links_div.innerHTML = generate_left_links();
     
     return;
 }

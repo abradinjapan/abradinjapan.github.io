@@ -34,8 +34,8 @@
     --page-header-links-padding-thickness: 20px;
     --page-header-link-padding-thickness: 20px;
     --page-document-padding-thickness: 20px;
-    --page-side-navigation-padding-thickness: 20px;
-    --page-side-navigation-link-padding-thickness: 10px;
+    --page-left-side-navigation-padding-thickness: 20px;
+    --page-left-side-navigation-link-padding-thickness: 10px;
     --page-document-text-padding-thickness: 20px;
 }
 
@@ -209,7 +209,7 @@ body {
 #page_left_links {
     width: 20%;
     margin: var(--no-margin-pixel-thickness);
-    padding: var(--page-side-navigation-padding-thickness);
+    padding: var(--page-left-side-navigation-padding-thickness);
     color: var(--normal-text-color);
     border-style: var(--default-border-type);
     border-color: var(--border-color);
@@ -225,7 +225,7 @@ body {
 
 .page_left_navigation_link {
     margin: var(--no-margin-pixel-thickness);
-    padding-bottom: var(--page-side-navigation-link-padding-thickness);
+    padding-bottom: var(--page-left-side-navigation-link-padding-thickness);
     color: var(--normal-text-color);
     border-style: var(--default-border-type);
     border-color: var(--border-color);
@@ -246,7 +246,7 @@ body {
 #page_right_links {
     width: 20%;
     margin: var(--no-margin-pixel-thickness);
-    padding: var(--page-side-navigation-padding-thickness);
+    padding: var(--page-left-side-navigation-padding-thickness);
     color: var(--normal-text-color);
     border-style: var(--default-border-type);
     border-color: var(--border-color);
@@ -262,7 +262,7 @@ body {
 
 .page_right_navigation_link {
     margin: var(--no-margin-pixel-thickness);
-    padding-bottom: var(--page-side-navigation-link-padding-thickness);
+    padding-bottom: var(--page-left-side-navigation-link-padding-thickness);
     color: var(--normal-text-color);
     border-style: var(--default-border-type);
     border-color: var(--border-color);
