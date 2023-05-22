@@ -22,7 +22,7 @@ let site_json = {
                 },
                 {
                     type: "text",
-                    data: "I am a software developer that is familiar with a wide range of software technologies.",
+                    data: "I am a developer that is familiar with a wide range of software technologies.",
                 },
                 {
                     type: "text",
