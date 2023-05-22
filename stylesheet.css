@@ -206,7 +206,7 @@ body {
     border-right-width: var(--no-border-pixel-thickness);
 }
 
-#page_side_navigation_container {
+#page_side_links {
     width: 20%;
     margin: var(--no-margin-pixel-thickness);
     padding: var(--page-side-navigation-padding-thickness);
@@ -288,4 +288,17 @@ body {
     color: var(--highlight-color);
     text-decoration: underline;
     cursor: pointer;
+}
+
+.page_document_image {
+    margin: var(--no-margin-pixel-thickness);
+    padding-bottom: var(--page-document-text-padding-thickness);
+    color: var(--normal-text-color);
+    border-style: var(--default-border-type);
+    border-color: var(--border-color);
+    border-top-width: var(--no-border-pixel-thickness);
+    border-bottom-width: var(--no-border-pixel-thickness);
+    border-left-width: var(--no-border-pixel-thickness);
+    border-right-width: var(--no-border-pixel-thickness);
+    width: 80%;
 }
