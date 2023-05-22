@@ -36,6 +36,14 @@ let site_json = {
                     data: "Voxelize",
                 },
                 {
+                    type: "text",
+                    data: "Voxelize is my attempt to recreate minecraft in C.",
+                },
+                {
+                    type: "text",
+                    data: "Here is a sample of some chunk rendering I have done using OpenGL.",
+                },
+                {
                     type: "internal_image",
                     link: "images/voxelize-alpha.png",
                 }
@@ -215,7 +223,7 @@ function search_for_top_link_set(json, name) {
 function goto_page(page_name) {
     var page_document_div = document.getElementById("page_document_container");
     var page_top_links_div = document.getElementById("page_top_links");
-    var page_side_links_div = document.getElementById("page_side_links");
+    var page_left_links_div = document.getElementById("page_left_links");
     var page_json;
     var page_json_top_links;
 
@@ -226,7 +234,7 @@ function goto_page(page_name) {
     // setup page document contents to requested information
     page_document_div.innerHTML = generate_document(page_json);
     page_top_links_div.innerHTML = generate_top_links(page_json_top_links);
-    //page_side_links_div.innerHTML = generate_side_links();
+    //page_left_links_div.innerHTML = generate_side_links();
     
     return;
 }
