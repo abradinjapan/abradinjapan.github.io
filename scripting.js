@@ -30,15 +30,8 @@ let site_json = {
                 },
                 {
                     type: "text",
-                    data: "I am always open for a chat, please do not hesitate to email me at the address on the bottom of the page."
-                }
-            ]
-        },
-        {
-            name: "contact",
-            top_links: "normal",
-            left_links: "empty",
-            content: [
+                    data: "I am always open for a chat, please do not hesitate to contact me."
+                },
                 {
                     type: "header",
                     data: "Contact",
@@ -57,6 +50,14 @@ let site_json = {
                     data: "GitHub",
                     link: "https://github.com/abradinjapan",
                 }
+            ]
+        },
+        {
+            name: "contact",
+            top_links: "normal",
+            left_links: "empty",
+            content: [
+                
             ]
         },
         {
@@ -109,10 +110,6 @@ let site_json = {
                 {
                     text: "Voxelize",
                     page: "voxelize"
-                },
-                {
-                    text: "Contact",
-                    page: "contact",
                 }
             ]
         }
