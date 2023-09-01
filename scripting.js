@@ -29,12 +29,37 @@ let site_json = {
                     data: "I am familiar with OpenGL, C, C++, Lua, Python, C#, Web Development, Linux and more.",
                 },
                 {
+                    type: "header",
+                    data: "Experience",
+                },
+                {
                     type: "text",
-                    data: "I am always open for a chat, please do not hesitate to contact me."
+                    data: "In my programming career I have worked at Code Ninjas in various locations for about two years total."
+                },
+                {
+                    type: "text",
+                    data: "My highest role was as a Lead Sensei (Lead Teacher) who was responsible for creating coding based summer camp activities."
+                },
+                {
+                    type: "text",
+                    data: "I have taught Roblox Lua, Python, JavaScript, Scratch, and more."
+                },
+                {
+                    type: "text",
+                    data: "Here is a small portion of roblox coding I have done.",
+                },
+                {
+                    type: "internal_video",
+                    data: "empty",
+                    link: "videos/roblox.mkv",
                 },
                 {
                     type: "header",
                     data: "Contact",
+                },
+                {
+                    type: "text",
+                    data: "I am always open for a chat, please do not hesitate to contact me."
                 },
                 {
                     type: "text",
@@ -50,14 +75,6 @@ let site_json = {
                     data: "GitHub",
                     link: "https://github.com/abradinjapan",
                 }
-            ]
-        },
-        {
-            name: "contact",
-            top_links: "normal",
-            left_links: "empty",
-            content: [
-                
             ]
         },
         {
@@ -84,13 +101,13 @@ let site_json = {
             ]
         },
         {
-            name: "tutorial.home",
+            name: "experience",
             top_links: "normal",
-            left_links: "tutorial.left_links",
+            left_links: "empty",
             content: [
                 {
                     type: "header",
-                    data: "Tutorials",
+                    data: "Experience",
                 }
             ]
         }
@@ -110,6 +127,10 @@ let site_json = {
                 {
                     text: "Voxelize",
                     page: "voxelize"
+                },
+                {
+                    text: "Experience",
+                    page: "experience"
                 }
             ]
         }
@@ -167,6 +188,12 @@ function generate_internal_image(link) {
     return ("<div class=\"page_document_text\"><img class=\"page_document_image\"src=\"" + link + "\"></img></div>");
 }
 
+// write internal video
+function generate_internal_video(link) {
+    // build code
+    return ("<div class=\"page_document_text\"><video class=\"page_document_video\"src=\"" + link + "\"autoplay controls></video></div>");
+}
+
 // generate main document
 function generate_document(json) {
     var output = "";
@@ -194,6 +221,10 @@ function generate_document(json) {
         case "internal_image":
             output += generate_internal_image(current_content.link);
 
+            break;
+        case "internal_video":
+            output += generate_internal_video(current_content.link);
+    
             break;
         }
     }
