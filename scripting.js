@@ -45,15 +45,6 @@ let site_json = {
                     data: "I have taught Roblox Lua, Python, JavaScript, Scratch, and more."
                 },
                 {
-                    type: "text",
-                    data: "Here is a small portion of roblox coding I have done.",
-                },
-                {
-                    type: "internal_video",
-                    data: "empty",
-                    link: "videos/roblox.mkv",
-                },
-                {
                     type: "header",
                     data: "Contact",
                 },
@@ -191,7 +182,7 @@ function generate_internal_image(link) {
 // write internal video
 function generate_internal_video(link) {
     // build code
-    return ("<div class=\"page_document_text\"><video class=\"page_document_video\"src=\"" + link + "\"autoplay controls></video></div>");
+    return ("<div class=\"page_document_text\"><video class=\"page_document_video\"src=\"" + link + "\"controls></video></div>");
 }
 
 // generate main document
