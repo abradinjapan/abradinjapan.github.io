@@ -42,7 +42,7 @@ let site_json = {
                 },
                 {
                     type: "text",
-                    data: "I have taught Roblox Lua, Python, JavaScript, Scratch, and more."
+                    data: "I have taught Roblox Lua, Python, JavaScript, C#, and more."
                 },
                 {
                     type: "header",
