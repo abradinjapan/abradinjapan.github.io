@@ -69,29 +69,6 @@ let site_json = {
             ]
         },
         {
-            name: "voxelize",
-            top_links: "normal",
-            left_links: "empty",
-            content: [
-                {
-                    type: "header",
-                    data: "Voxelize",
-                },
-                {
-                    type: "text",
-                    data: "Voxelize is my attempt to recreate minecraft in C.",
-                },
-                {
-                    type: "text",
-                    data: "Here is a sample of some chunk rendering I have done using OpenGL.",
-                },
-                {
-                    type: "internal_image",
-                    link: "images/voxelize-alpha.png",
-                }
-            ]
-        },
-        {
             name: "experience",
             top_links: "normal",
             left_links: "empty",
@@ -99,7 +76,7 @@ let site_json = {
                 {
                     type: "header",
                     data: "Experience",
-                }
+                },
             ]
         }
     ],
@@ -114,10 +91,6 @@ let site_json = {
                 {
                     text: "About",
                     page: "about",
-                },
-                {
-                    text: "Voxelize",
-                    page: "voxelize"
                 },
                 {
                     text: "Experience",
