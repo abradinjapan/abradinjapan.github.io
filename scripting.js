@@ -69,14 +69,56 @@ let site_json = {
             ]
         },
         {
-            name: "experience",
+            name: "projects",
             top_links: "normal",
             left_links: "empty",
             content: [
                 {
                     type: "header",
-                    data: "Experience",
+                    data: "Wave Programming Language",
                 },
+                {
+                    type: "text",
+                    data: "Wave is an interpreted programming language that I designed and implemented."
+                },
+                {
+                    type: "text",
+                    data: "Here is a hello world function."
+                },
+                {
+                    type: "code_block",
+                    data: "main()() = {\n\twave.load.string(\"\'Hello World!\'\")(message.start message.end)\n\tstring.print(message.start message.end)()\n\twave.return_memory(message.start message.end)()\n}"
+                },
+                {
+                    type: "text",
+                    data: "The next version named 'dragon' is currently in development.",
+                },
+                {
+                    type: "external_link",
+                    data: "Wave GitHub Link",
+                    link: "https://github.com/abradinjapan/wave"
+                },
+                {
+                    type: "header",
+                    data: "Voxelize",
+                },
+                {
+                    type: "text",
+                    data: "Voxelize is a voxel renderer written in straight C & OpenGL. It's basically minecraft."
+                },
+                {
+                    type: "text",
+                    data: "Here is a sample and link to an earlier stage of the project.",
+                },
+                {
+                    type: "external_link",
+                    data: "Voxelize GitHub Link",
+                    link: "https://github.com/abradinjapan/voxelize-drawing"
+                },
+                {
+                    type: "internal_image",
+                    link: "./images/voxelize-alpha.png"
+                }
             ]
         }
     ],
@@ -93,8 +135,8 @@ let site_json = {
                     page: "about",
                 },
                 {
-                    text: "Experience",
-                    page: "experience"
+                    text: "Projects",
+                    page: "projects"
                 }
             ]
         }
@@ -126,6 +168,12 @@ function generate_header(text) {
 function generate_text(text) {
     // build code
     return ("<div class=\"page_document_text\">" + text + "</div>");
+}
+
+// write code block
+function generate_code_block(text) {
+    // build code
+    return ("<div class=\"page_document_code_block\"><pre>" + text + "</pre></div>");
 }
 
 // write external link
@@ -176,6 +224,10 @@ function generate_document(json) {
             break;
         case "text":
             output += generate_text(current_content.data);
+
+            break;
+        case "code_block":
+            output += generate_code_block(current_content.data);
 
             break;
         case "external_link":
