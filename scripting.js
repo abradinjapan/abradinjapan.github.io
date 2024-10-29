@@ -30,22 +30,6 @@ let site_json = {
                 },
                 {
                     type: "header",
-                    data: "Experience",
-                },
-                {
-                    type: "text",
-                    data: "In my programming career I have worked at Code Ninjas in various locations for about two years total."
-                },
-                {
-                    type: "text",
-                    data: "My highest role was as a Lead Sensei (Lead Teacher) who was responsible for creating coding based summer camp activities."
-                },
-                {
-                    type: "text",
-                    data: "I have taught Roblox Lua, Python, JavaScript, C#, and more."
-                },
-                {
-                    type: "header",
                     data: "Contact",
                 },
                 {
